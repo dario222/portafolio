@@ -1,18 +1,20 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+<meta charset="UTF-8">
 <title>Calculadora</title>
 
 <style>
 
-  
 body{
-font-family:Arial;
+font-family: Arial, sans-serif;
 display:flex;
 justify-content:center;
 align-items:center;
 height:100vh;
 background:#f5f5f5;
+margin:0;
 }
 
 .calculadora{
@@ -20,6 +22,7 @@ background:white;
 padding:20px;
 border-radius:10px;
 box-shadow:0 10px 20px rgba(0,0,0,0.2);
+text-align:center;
 }
 
 input{
@@ -28,6 +31,8 @@ height:40px;
 font-size:20px;
 margin-bottom:10px;
 text-align:right;
+padding:5px;
+box-sizing:border-box;
 }
 
 button{
@@ -35,17 +40,25 @@ width:50px;
 height:50px;
 margin:5px;
 font-size:18px;
+border:none;
+border-radius:8px;
+background:#4CAF50;
+color:white;
+cursor:pointer;
+}
+
+button:hover{
+background:#45a049;
 }
 
 </style>
-
 </head>
 
 <body>
 
 <div class="calculadora">
 
-<input type="text" id="pantalla">
+<input type="text" id="pantalla" readonly>
 
 <br>
 
@@ -84,8 +97,13 @@ document.getElementById("pantalla").value += valor
 }
 
 function calcular(){
+try{
 let resultado = eval(document.getElementById("pantalla").value)
 document.getElementById("pantalla").value = resultado
+}
+catch{
+document.getElementById("pantalla").value = "Error"
+}
 }
 
 function borrar(){
@@ -96,3 +114,4 @@ document.getElementById("pantalla").value = ""
 
 </body>
 </html>
+```
